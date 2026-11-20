@@ -1,3 +1,59 @@
-p { 
-    color: red;
+:root {
+    --font: Arial, Helvetica, sans-serif;
+    --font-size: 24px;
+    --heading-colour: #111;
+    --text-colour: #3f3f3f;
+    --accent-colour: #dfdfdf;
+    --green: #9DCE3F;
+    --brown: #835E18;
+    --yellow: #E8E351;
+    --blue: #97B4F0;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-size: var(--font-size);
+}
+
+body {
+    padding: 24px;
+    font-size: var(--font-size);
+}
+
+header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+}
+
+header nav {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: 32px;
+    height: fit-content;
+}
+
+.menu-button {
+    display: flex;
+    text-decoration: none;
+    color: var(--text-colour);
+    height: fit-content;
+    gap: 8px;
+    font-size: 24px;
+}
+
+.square {
+    background-color: var(--text-colour);
+    aspect-ratio: 1;
+    height: 1em;
+}
+
+.menu-button:hover .square {
+    background-color: var(--yellow);
 }
