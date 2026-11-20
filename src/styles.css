@@ -1,5 +1,5 @@
 :root {
-    --font: Arial, Helvetica, sans-serif;
+    --font: Georgia, 'Times New Roman', Times, serif;
     --font-size: 24px;
     --heading-colour: #111;
     --text-colour: #3f3f3f;
@@ -18,17 +18,18 @@
 
 h1 {
     font-size: var(--font-size);
+    color: var(--heading-colour);
 }
 
 body {
     padding: 24px;
+    font-family: var(--font);
     font-size: var(--font-size);
 }
 
 header {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-
 }
 
 header nav {
@@ -54,6 +55,43 @@ header nav {
     height: 1em;
 }
 
-.menu-button:hover .square {
+nav .menu-button:first-child:hover .square {
+    background-color: var(--green);
+}
+nav .menu-button:nth-child(2):hover .square {
     background-color: var(--yellow);
 }
+
+nav .menu-button:last-child:hover .square {
+    background-color: var(--blue);
+}
+
+#content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: max-content;
+}
+
+.food-menu {
+    margin-top: 50px;
+}
+
+.food-menu-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.food-title {
+    flex: 1;
+    border-bottom: dotted 2px black;
+    margin-right: 0.5rem;
+}
+
+.food-menu-row:hover {
+    cursor: pointer;
+}
+
+.food-menu-row:hover .food-title {
+    border-bottom: solid 2px black;
+}
+
