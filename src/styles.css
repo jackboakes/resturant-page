@@ -23,15 +23,18 @@ h2 {
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     padding: 24px;
     font-family: var(--font);
     font-size: var(--font-size);
-    font-weight: 100;
+    min-height: 100vh;
 }
 
 header {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
 }
 
 header nav {
@@ -69,14 +72,16 @@ nav .menu-button:last-child:hover .square {
 }
 
 #content {
+    flex: 1;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: max-content;
+    grid-template-rows: 1fr;
+    align-items: center;
 }
+
 .home,
 .food-menu,
 .about {
-    margin-top: 50px;
     grid-column: 1 / 2;
 }
 
@@ -97,4 +102,13 @@ nav .menu-button:last-child:hover .square {
 
 .food-menu-row:hover .food-title {
     border-bottom: solid 2px black;
+}
+
+.food-menu-image {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    height: min(30vw, 40vh);
+    transform: translate(-50%, -50%);
 }

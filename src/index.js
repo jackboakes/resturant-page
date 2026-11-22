@@ -1,29 +1,33 @@
 import "./styles.css";
 
+import denimChickenImage from "./images/denim-chicken.jpg";
+import liqourBallSandwichImage from "./images/liquor-ball-sandwiches.jpg";
+import tunaSandwichImage from "./images/coke-tuna-sandwich.jpg";
+
 class MenuItem {
-    constructor(name, price, ingredients, image) {
+    constructor(name, price, ingredients, imageSrc) {
         this.name = name;
         this.price = price;
         this.ingredients = ingredients;
-        this.image = image;
-    }
+        this.imageSrc = imageSrc;
+    };
 };
 
 function createMenu() {
     const tunaSandwich = new MenuItem("Drink of Pepsi Max and Tuna Sandwich", 
         18,
         "Albacore tuna, white bread, can of Pepsi Max",
-        "./src/images/coke-tuna-sandwich.jpg"
+        tunaSandwichImage
     );
     const denimChicken = new MenuItem("Denim Chicken", 
         22,
          "Roasted chicken, Levi 501 jeans",
-         "./src/images/denim-chicken.jpg"
+         denimChickenImage
     );
     const liqourBallSandwich = new MenuItem("Liquor Ball Sandwich", 
         16,
         "White bread, chilled vodka",
-        "./src/images/liquor-ball-sandwiches.jpg"
+        liqourBallSandwichImage
     );
 
     const menu = document.querySelector(".food-menu");
@@ -44,9 +48,24 @@ function createMenuRow(menu, menuItem) {
     const row = document.createElement("div");
     row.classList.add("food-menu-row");
     row.append(title, price);
+    
+    const imageContainer = document.createElement("div");
+    const content = document.querySelector("#content");
+    content.appendChild(imageContainer);
+
+    row.addEventListener("mouseenter", e => {
+        const menuImage = document.createElement("img");
+        menuImage.classList.add("food-menu-image");
+        menuImage.src = menuItem.imageSrc;
+
+        imageContainer.appendChild(menuImage);
+    });
+
+    row.addEventListener("mouseleave", e => {
+        imageContainer.innerText = "";
+    });
 
     menu.appendChild(row);
 }
 
 createMenu();
-
