@@ -16,7 +16,8 @@
     margin: 0;
 }
 
-h1 {
+h1,
+h2 {
     font-size: var(--font-size);
     color: var(--heading-colour);
 }
@@ -25,6 +26,7 @@ body {
     padding: 24px;
     font-family: var(--font);
     font-size: var(--font-size);
+    font-weight: 100;
 }
 
 header {
@@ -71,9 +73,11 @@ nav .menu-button:last-child:hover .square {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: max-content;
 }
-
-.food-menu {
+.home,
+.food-menu,
+.about {
     margin-top: 50px;
+    grid-column: 1 / 2;
 }
 
 .food-menu-row {
@@ -94,4 +98,3 @@ nav .menu-button:last-child:hover .square {
 .food-menu-row:hover .food-title {
     border-bottom: solid 2px black;
 }
-
