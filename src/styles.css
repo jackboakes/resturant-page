@@ -22,6 +22,10 @@ h2 {
     color: var(--heading-colour);
 }
 
+p {
+    margin-top: 8px;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -51,7 +55,8 @@ header nav {
     color: var(--text-colour);
     height: fit-content;
     gap: 8px;
-    font-size: 24px;
+    font-family: var(--font);
+    font-size: var(--font-size);
     border: 0;
     background-color: transparent;
 }
@@ -110,11 +115,19 @@ nav .menu-button:last-child:hover .square {
     border-bottom: solid 2px black;
 }
 
-.food-menu-image {
+.food-menu-image-preview {
     position: fixed;
     top: 50%;
     left: 50%;
     z-index: -1;
-    height: min(30vw, 40vh);
+    
     transform: translate(-50%, -50%);
+}
+
+.food-menu-image-preview img {
+    height: min(30vw, 40vh);
+}
+
+.opening-hours { 
+    margin-top: 50px;
 }

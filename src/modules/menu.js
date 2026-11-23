@@ -57,15 +57,18 @@ function createMenuRow(menu, menuItem) {
     row.append(title, price);
     
     const imageContainer = document.createElement("div");
+    imageContainer.classList.add("food-menu-image-preview");
     const content = document.querySelector("#content");
     content.appendChild(imageContainer);
 
     row.addEventListener("mouseenter", e => {
         const menuImage = document.createElement("img");
-        menuImage.classList.add("food-menu-image");
         menuImage.src = menuItem.imageSrc;
 
-        imageContainer.appendChild(menuImage);
+        const menuIngredients = document.createElement("p");
+        menuIngredients.innerText = menuItem.ingredients;
+
+        imageContainer.append(menuImage, menuIngredients);
     });
 
     row.addEventListener("mouseleave", e => {
